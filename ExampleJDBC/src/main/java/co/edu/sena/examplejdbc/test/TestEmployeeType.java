@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Fecha: 13/03/2025
  * @author Sebastian Rodriguez
- * Objetivo: Proba consultas/ttransacciones en tabla employee_type .
+ * Objetivo: Proba consultas/transacciones en tabla employee_type .
  */
 public class TestEmployeeType {
     public static void main(String[] args) {
