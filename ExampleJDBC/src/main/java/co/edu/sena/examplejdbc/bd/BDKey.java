@@ -22,7 +22,7 @@ public class BDKey extends BDConnection{
     {
         try {
             connect();
-            String sql = "insert into key values(?,?,?,?,?)";
+            String sql = "insert into key values(id, name, room, acount, observation)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, keys.getId());
             preparedStatement.setString(2, keys.getName());
