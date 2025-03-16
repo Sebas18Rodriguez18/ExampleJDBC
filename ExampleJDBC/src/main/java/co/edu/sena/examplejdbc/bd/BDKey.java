@@ -17,47 +17,41 @@ import java.util.List;
  * @author Sebastian Rodriguez
  * Objetivo: Permite consultas y transacciones en la tabla key .
  */
-public class BDKey extends BDConnection{
-    public void insertKey (keys keys)
-    {
+public class BDKey extends BDConnection {
+    public void insertKey(keys key) {
         try {
             connect();
-            String sql = "insert into key(id) values(?, ?, ?, ?)";
+            String sql = "INSERT INTO `key` (id, name, room, count, observation) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, keys.getId());
-            preparedStatement.setString(2, keys.getName());
-            preparedStatement.setString(3, keys.getRoom());
-            preparedStatement.setInt(4, keys.getCount());
-            preparedStatement.setString(5, keys.getObservation());
-            preparedStatement.close();
+            preparedStatement.setInt(1, key.getId());
+            preparedStatement.setString(2, key.getName());
+            preparedStatement.setString(3, key.getRoom());
+            preparedStatement.setInt(4, key.getCount());
+            preparedStatement.setString(5, key.getObservation());
             preparedStatement.executeUpdate();
-        } 
-        catch (SQLException e) {
-            MessageUtils.showErrorMessage("Error al insertar una llave " + e.getMessage());
-        }
-        finally {
+            preparedStatement.close();
+        } catch (SQLException e) {
+            MessageUtils.showErrorMessage("Error al insertar una llave: " + e.getMessage());
+        } finally {
             disconnect();
         }
     }
     
-    public void updateKey (keys keys)
-    {
+        public void updateKey(keys key) {
         try {
             connect();
-            String sql = "update employee_type set descript = ? where id = ?";
+            String sql = "UPDATE `key` SET name = ?, room = ?, count = ?, observation = ? WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, keys.getId());
-            preparedStatement.setString(2, keys.getName());
-            preparedStatement.setString(3, keys.getRoom());
-            preparedStatement.setInt(4, keys.getCount());
-            preparedStatement.setString(5, keys.getObservation());
+            preparedStatement.setString(1, key.getName());
+            preparedStatement.setString(2, key.getRoom());
+            preparedStatement.setInt(3, key.getCount());
+            preparedStatement.setString(4, key.getObservation());
+            preparedStatement.setInt(5, key.getId());
             preparedStatement.executeUpdate();
             preparedStatement.close();
-        } 
-        catch (SQLException e) {
-            MessageUtils.showErrorMessage("Error al actualizar llaves" + e.getMessage());
-        }
-        finally {
+        } catch (SQLException e) {
+            MessageUtils.showErrorMessage("Error al actualizar una llave: " + e.getMessage());
+        } finally {
             disconnect();
         }
     }
@@ -80,67 +74,57 @@ public class BDKey extends BDConnection{
         }
     }
     
-    public List<keys> findAllKeys()
-    {
-         List<keys> results = new ArrayList<>();
-         
-         try {
+    public List<keys> getAllKeys() {
+        List<keys> keysList = new ArrayList<>();
+        try {
             connect();
-            String sql = "select * from key";
-            statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sql);
-             
-             while (resultSet.next()) {                 
-                 keys key = new keys();
-                 key.setId(resultSet.getInt("id"));
-                 key.setName(resultSet.getString("name"));
-                 key.setRoom(resultSet.getString("room"));
-                 key.setCount(resultSet.getInt("count"));
-                 key.setObservation(resultSet.getString("observation"));
-                 
-                 results.add(key);
-                }
-             resultSet.close();
-        } 
-         catch (SQLException e) {
-             MessageUtils.showErrorMessage("Error al consultar tipos llaves"  + e.getMessage());
+            String sql = "SELECT * FROM `key`";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                keys key = new keys(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("room"),
+                    resultSet.getInt("count"),
+                    resultSet.getString("observation")
+                );
+                keysList.add(key);
+            }
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            MessageUtils.showErrorMessage("Error al obtener todas las llaves: " + e.getMessage());
+        } finally {
+            disconnect();
         }
-         finally {
-             disconnect();
-         }
-         
-         return results;
+        return keysList;
     }
     
-    public keys findByIdKey (int id)
-    {
-        keys keys = null;
-         try {
+    public keys getKeyById(int id) {
+        keys key = null;
+        try {
             connect();
-            String sql = "select * from key where id = ?";
+            String sql = "SELECT * FROM `key` WHERE id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
-             
-             if (resultSet.next()) {                 
-                 keys key = new keys();
-                 key.setId(resultSet.getInt("id"));
-                 key.setName(resultSet.getString("name"));
-                 key.setRoom(resultSet.getString("room"));
-                 key.setCount(resultSet.getInt("count"));
-                 key.setObservation(resultSet.getString("observation"));
-             }
-             
-             resultSet.close();
-             preparedStatement.close();
-        } 
-         catch (SQLException e) {
-             MessageUtils.showErrorMessage("Error al consultar llaves"  + e.getMessage());
+            if (resultSet.next()) {
+                key = new keys(
+                    resultSet.getInt("id"),
+                    resultSet.getString("name"),
+                    resultSet.getString("room"),
+                    resultSet.getInt("count"),
+                    resultSet.getString("observation")
+                );
+            }
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            MessageUtils.showErrorMessage("Error al obtener la llave por ID: " + e.getMessage());
+        } finally {
+            disconnect();
         }
-         finally {
-             disconnect();
-         }
-         
-         return keys;
+        return key;
     }
 }

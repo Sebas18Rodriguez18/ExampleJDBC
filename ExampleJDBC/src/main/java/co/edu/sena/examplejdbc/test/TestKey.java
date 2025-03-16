@@ -6,6 +6,7 @@ package co.edu.sena.examplejdbc.test;
 
 import co.edu.sena.examplejdbc.bd.BDKey;
 import co.edu.sena.examplejdbc.model.keys;
+import java.util.List;
 
 /**
  * Fecha: 15/03/2025
@@ -14,10 +15,27 @@ import co.edu.sena.examplejdbc.model.keys;
  */
 public class TestKey {
     public static void main(String[] args) {
-        BDKey keys = new BDKey();
+        BDKey bdKey = new BDKey();
         
-        //Insertar
+        // Insertar
         keys key = new keys(5, "BICENTENARIO AMBIENTE 01", "Salon 205", 2, "Llaves prestadas");
-        keys.insertKey(key);
+//        bdKey.insertKey(key);
+        
+        // Actualizar
+        key.setName("ACTUALIZADO AMBIENTE 01");
+        key.setRoom("Salon 206");
+        key.setCount(3);
+        key.setObservation("Llaves actualizadas");
+        bdKey.updateKey(key);
+        
+        // Consultar todas las llaves
+        List<keys> keysList = bdKey.getAllKeys();
+        for (keys k : keysList) {
+            System.out.println(k);
+        }
+        
+        // Consultar una llave por ID
+        keys keyById = bdKey.getKeyById(5);
+        System.out.println(keyById);
     }
-}
+    }
