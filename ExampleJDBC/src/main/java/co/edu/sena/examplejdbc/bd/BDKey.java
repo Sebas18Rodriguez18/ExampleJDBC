@@ -22,7 +22,7 @@ public class BDKey extends BDConnection{
     {
         try {
             connect();
-            String sql = "insert into key (id) values(?, ?, ?, ?)";
+            String sql = "insert into key(id) values(?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, keys.getId());
             preparedStatement.setString(2, keys.getName());
@@ -33,7 +33,7 @@ public class BDKey extends BDConnection{
             preparedStatement.executeUpdate();
         } 
         catch (SQLException e) {
-            MessageUtils.showErrorMessage("Error al insertar una llave" + e.getMessage());
+            MessageUtils.showErrorMessage("Error al insertar una llave " + e.getMessage());
         }
         finally {
             disconnect();

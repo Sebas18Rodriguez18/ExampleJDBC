@@ -14,9 +14,10 @@ import co.edu.sena.examplejdbc.model.keys;
  */
 public class TestKey {
     public static void main(String[] args) {
-        BDKey bDKey = new BDKey();
+        BDKey keys = new BDKey();
         
         //Insertar
-        keys keys = new keys(5, "BICENTENARIO AMBIENTE 01", "Salon 205", 1, "");
+        keys key = new keys(5, "BICENTENARIO AMBIENTE 01", "Salon 205", 2, "Llaves prestadas");
+        keys.insertKey(key);
     }
 }
