@@ -19,7 +19,7 @@ public class TestKey {
         
         // Insertar
         keys key = new keys(5, "BICENTENARIO AMBIENTE 05", "Salon 205", 3, "Llaves prestadas");
-//        bdKey.insertKey(keys);
+        bdKey.insertKey(key);
         
         // Actualizar
         key.setName("ACTUALIZADO AMBIENTE 01");
@@ -35,7 +35,7 @@ public class TestKey {
         }
         
         // Consultar una llave por ID
-        keys keyById = bdKey.getKeyById(5);
+        keys keyById = bdKey.getKeyById(2);
         System.out.println(keyById);
     }
     }

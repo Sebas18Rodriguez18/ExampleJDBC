@@ -4,7 +4,6 @@
  */
 package co.edu.sena.examplejdbc.bd;
 
-import co.edu.sena.examplejdbc.model.Key;
 import co.edu.sena.examplejdbc.model.keys;
 import co.edu.sena.examplejdbc.utils.MessageUtils;
 import java.sql.PreparedStatement;
@@ -20,7 +19,7 @@ import java.util.List;
  */
 
 public class BDKey extends BDConnection{
-        public void insertKey (Key keys)
+        public void insertKey (keys keys)
     {
         try {
             connect();

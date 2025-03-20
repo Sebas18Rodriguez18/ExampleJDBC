@@ -5,8 +5,9 @@
 package co.edu.sena.examplejdbc.model;
 
 /**
- *
- * @author Aprendiz
+ * Fecha: 15/03/2025
+ * @author Sebastian Rodriguez
+ * Objetivo: Instanciar los objetos de la tabla Employee_Type.
  */
 public class EmployeeType {
    private int id;
