@@ -122,7 +122,7 @@ public class BDEmployee extends BDConnection {
             String sql = "select * from employee where document = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setLong(1, document);
-            ResultSet resultSet = statement.executeQuery(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
             
             if (resultSet.next()) {
                 employee = new Employee();
