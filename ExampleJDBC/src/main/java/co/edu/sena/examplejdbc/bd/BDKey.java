@@ -4,6 +4,7 @@
  */
 package co.edu.sena.examplejdbc.bd;
 
+import co.edu.sena.examplejdbc.model.Key;
 import co.edu.sena.examplejdbc.model.keys;
 import co.edu.sena.examplejdbc.utils.MessageUtils;
 import java.sql.PreparedStatement;
@@ -17,17 +18,19 @@ import java.util.List;
  * @author Sebastian Rodriguez
  * Objetivo: Permite consultas y transacciones en la tabla key .
  */
-public class BDKey extends BDConnection {
-    public void insertKey(keys key) {
+
+public class BDKey extends BDConnection{
+        public void insertKey (Key keys)
+    {
         try {
             connect();
-            String sql = "INSERT INTO `key` (id, name, room, count, observation) VALUES (?, ?, ?, ?, ?)";
+            String sql = "insert into `key` (name, ) values (?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setInt(1, key.getId());
-            preparedStatement.setString(2, key.getName());
-            preparedStatement.setString(3, key.getRoom());
-            preparedStatement.setInt(4, key.getCount());
-            preparedStatement.setString(5, key.getObservation());
+            preparedStatement.setInt(1, keys.getId());
+            preparedStatement.setString(2, keys.getName());
+            preparedStatement.setString(3, keys.getRoom());
+            preparedStatement.setInt(4, keys.getCount());
+            preparedStatement.setString(5, keys.getObservation());
             preparedStatement.executeUpdate();
             preparedStatement.close();
         } catch (SQLException e) {
@@ -60,7 +63,7 @@ public class BDKey extends BDConnection {
     {
         try {
             connect();
-            String sql = "delete from key where id = ?";
+            String sql = "delete from `key` where id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
@@ -68,7 +71,7 @@ public class BDKey extends BDConnection {
         } 
         catch (SQLException e) {
             MessageUtils.showErrorMessage("Error al eliminar una llave" + e.getMessage());
-        }
+        } 
         finally {
             disconnect();
         }
@@ -127,4 +130,5 @@ public class BDKey extends BDConnection {
         }
         return key;
     }
+
 }

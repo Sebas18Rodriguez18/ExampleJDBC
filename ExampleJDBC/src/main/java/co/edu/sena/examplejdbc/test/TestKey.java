@@ -18,8 +18,8 @@ public class TestKey {
         BDKey bdKey = new BDKey();
         
         // Insertar
-        keys key = new keys(5, "BICENTENARIO AMBIENTE 01", "Salon 205", 2, "Llaves prestadas");
-//        bdKey.insertKey(key);
+        keys key = new keys(5, "BICENTENARIO AMBIENTE 05", "Salon 205", 3, "Llaves prestadas");
+//        bdKey.insertKey(keys);
         
         // Actualizar
         key.setName("ACTUALIZADO AMBIENTE 01");
