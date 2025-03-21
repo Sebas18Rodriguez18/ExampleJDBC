@@ -117,4 +117,39 @@ public class BDRecord extends BDConnection {
         }
         return results;
     }
+    
+        public Record findById(int id) {
+        Record record = null;
+        BDEmployee bde = new BDEmployee();
+        BDKey bdk = new BDKey();
+
+        try {
+            connect();
+            String sql = "SELECT * FROM record WHERE id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                record = new Record();
+                record.setId(resultSet.getInt("id"));
+                record.setDate_record(resultSet.getString("date_record"));
+                record.setStart_time(resultSet.getString("start_time"));
+                record.setEnd_time(resultSet.getString("end_time"));
+                // FK's
+                Employee employee = bde.findById(resultSet.getInt("employee_id"));
+                keys key = bdk.getKeyById(resultSet.getInt("key_id"));
+                record.setEmployee(employee);
+                record.setKey(key);
+                // Norm
+                record.setStatus(resultSet.getString("status"));
+            }
+            resultSet.close();
+            preparedStatement.close();
+        } catch (SQLException e) {
+            MessageUtils.showErrorMessage("Error al consultar record por ID: " + e.getMessage());
+        } finally {
+            disconnect();
+        }
+        return record;
+}
 }

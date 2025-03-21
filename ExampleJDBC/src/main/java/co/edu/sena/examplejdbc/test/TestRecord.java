@@ -31,7 +31,7 @@ public class TestRecord {
 
         //Actualizar
         Record recordUpdated = new Record(7, "2025-03-20", "07:00:00", "01:15:00", employee, key, "PENDIENTE");
-//        bdr.update(recordUpdated);
+        bdr.update(recordUpdated);
         
         //Eliminar
 //        bdr.delete(9);
@@ -45,6 +45,21 @@ public class TestRecord {
                     + " Employee: " + e.getEmployee().getFullname()
                     + " Key: " + e.getKey().getObservation()
                     + " Status: " + e.getStatus());
+        }
+        
+        // Consultar por ID
+        System.out.println("************************************************************************************************************************************");
+        Record recordById = bdr.findById(7);
+        if (recordById != null) {
+            System.out.println("id: " + recordById.getId()
+                    + " Start Time: " + recordById.getStart_time()
+                    + " End Time: " + recordById.getEnd_time()
+                    + " Employee: " + recordById.getEmployee().getFullname()
+                    + " Key: " + recordById.getKey().getObservation()
+                    + " Status: " + recordById.getStatus());
+        }
+        else {
+            System.out.println("No existe el registro con ese ID");
         }
     }
 }
