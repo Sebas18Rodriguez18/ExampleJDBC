@@ -9,6 +9,7 @@ import co.edu.sena.examplejdbc.bd.controllers.IEmployeeTypeController;
 import co.edu.sena.examplejdbc.model.EmployeeType;
 import co.edu.sena.examplejdbc.utils.MessageUtils;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -30,7 +31,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
     {
         try {
             DefaultTableModel model = new DefaultTableModel();
-            jTable1.setModel(model);
+            jTableEmployee_Type.setModel(model);
             model.addColumn("Id");
             model.addColumn("Description");
             
@@ -69,8 +70,8 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         jButtonUpdate = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
         jButtonClear = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableEmployee_Type = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EmployeeType");
@@ -108,11 +109,21 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         jButtonUpdate.setForeground(new java.awt.Color(0, 0, 0));
         jButtonUpdate.setText("Modificar");
         jButtonUpdate.setEnabled(false);
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
 
         jButtonDelete.setBackground(new java.awt.Color(255, 51, 51));
         jButtonDelete.setForeground(new java.awt.Color(0, 0, 0));
         jButtonDelete.setText("Eliminar");
         jButtonDelete.setEnabled(false);
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteActionPerformed(evt);
+            }
+        });
 
         jButtonClear.setBackground(new java.awt.Color(51, 51, 255));
         jButtonClear.setForeground(new java.awt.Color(0, 0, 0));
@@ -124,32 +135,30 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableEmployee_Type.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jTableEmployee_Type.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableEmployee_TypeMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableEmployee_Type);
 
         javax.swing.GroupLayout jPanelEmployeeTypeLayout = new javax.swing.GroupLayout(jPanelEmployeeType);
         jPanelEmployeeType.setLayout(jPanelEmployeeTypeLayout);
         jPanelEmployeeTypeLayout.setHorizontalGroup(
             jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabelId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(jLabelDescription)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextFieldDescription)
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelEmployeeTypeLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 84, Short.MAX_VALUE)
                 .addComponent(jButtonInsert)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonUpdate)
@@ -164,7 +173,18 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
+                .addComponent(jLabelId)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
+                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabelDescription)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldDescription)))
                 .addContainerGap())
         );
         jPanelEmployeeTypeLayout.setVerticalGroup(
@@ -184,9 +204,9 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                     .addComponent(jButtonDelete)
                     .addComponent(jButtonClear)
                     .addComponent(jButtonUpdate))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -211,7 +231,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
     private void jButtonInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonInsertActionPerformed
         try {
             EmployeeType employeeType = new EmployeeType();
-            employeeType.setDescript(jTextFieldDescription.getText());
+            employeeType.setDescript(jTextFieldDescription.getText().toUpperCase());
             employeeTypeController.insert(employeeType);
             MessageUtils.showInfoMessage("Tipo de empleado creado exitosamente");
             fillTable();
@@ -220,6 +240,55 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
             MessageUtils.showErrorMessage(e.getMessage());
         }
     }//GEN-LAST:event_jButtonInsertActionPerformed
+
+    private void jTableEmployee_TypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEmployee_TypeMouseClicked
+       int rowSelected = jTableEmployee_Type.getSelectedRow();
+
+        if(rowSelected != -1)
+        {
+            String idSelected = jTableEmployee_Type.getValueAt(rowSelected, 0).toString();
+            String descriptSelected = jTableEmployee_Type.getValueAt(rowSelected, 1).toString();
+
+            jTextFieldId.setText(idSelected);
+            jTextFieldDescription.setText(descriptSelected);
+            jButtonInsert.setEnabled(false);
+            jButtonDelete.setEnabled(true);
+            jButtonUpdate.setEnabled(true);
+
+        }
+    }//GEN-LAST:event_jTableEmployee_TypeMouseClicked
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        try {
+            EmployeeType employeeType = new EmployeeType();
+            employeeType.setId(Integer.parseInt(jTextFieldId.getText()));
+            employeeType.setDescript(jTextFieldDescription.getText().toUpperCase());
+            employeeTypeController.update(employeeType);
+            MessageUtils.showInfoMessage("Tipo de empleado modificado exitosamente");
+            fillTable();
+            clear();
+        }
+        catch (Exception e) {
+            MessageUtils.showErrorMessage(e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
+
+    private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
+        try {
+            int option = JOptionPane.showConfirmDialog(rootPane, "Eta seguro de eliminar el registro?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            
+            if(option == JOptionPane.YES_OPTION)
+            {
+                employeeTypeController.delete(Integer.parseInt(jTextFieldId.getText()));
+                MessageUtils.showInfoMessage("Tipo de empleado eliminado exitosamente");
+                fillTable();
+            }
+            clear();
+        }
+        catch (Exception e) {
+            MessageUtils.showErrorMessage(e.getMessage());
+        }
+    }//GEN-LAST:event_jButtonDeleteActionPerformed
 
     public void clear()
     {
@@ -274,8 +343,8 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JPanel jPanelEmployeeType;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTableEmployee_Type;
     private javax.swing.JTextField jTextFieldDescription;
     private javax.swing.JTextField jTextFieldId;
     // End of variables declaration//GEN-END:variables

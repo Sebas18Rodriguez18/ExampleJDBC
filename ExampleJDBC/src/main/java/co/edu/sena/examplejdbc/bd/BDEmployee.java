@@ -108,7 +108,7 @@ public class BDEmployee extends BDConnection {
         finally {
             disconnect();
         }
-        return null;
+        return results;
         
     }
     
