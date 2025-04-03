@@ -27,14 +27,6 @@ public class Employee {
         this.employeeType = employeeType;
     }
 
-    public EmployeeType getEmployeeType() {
-        return employeeType;
-    }
-
-    public void setEmployeeType(EmployeeType employeeType) {
-        this.employeeType = employeeType;
-    }
-
     public long getDocument() {
         return document;
     }
@@ -66,5 +58,17 @@ public class Employee {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
+
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(EmployeeType employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    @Override
+    public String toString() {
+        return fullname;
+    }
 }
