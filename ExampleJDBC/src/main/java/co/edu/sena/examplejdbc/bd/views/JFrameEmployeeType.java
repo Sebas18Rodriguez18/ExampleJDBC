@@ -72,6 +72,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         jButtonClear = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEmployee_Type = new javax.swing.JTable();
+        jButtonExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EmployeeType");
@@ -153,6 +154,16 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableEmployee_Type);
 
+        jButtonExit.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonExit.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonExit.setText("Menú");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelEmployeeTypeLayout = new javax.swing.GroupLayout(jPanelEmployeeType);
         jPanelEmployeeType.setLayout(jPanelEmployeeTypeLayout);
         jPanelEmployeeTypeLayout.setHorizontalGroup(
@@ -168,31 +179,36 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                 .addComponent(jButtonClear)
                 .addGap(82, 82, 82))
             .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
-                .addGap(146, 146, 146)
-                .addComponent(jLabelTitle)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelId)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonExit)
+                        .addGap(61, 61, 61)
+                        .addComponent(jLabelTitle)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
-                        .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabelDescription)
+                        .addComponent(jLabelId)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldDescription)))
+                        .addGroup(jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
+                                .addComponent(jTextFieldId, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(jLabelDescription)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldDescription)))))
                 .addContainerGap())
         );
         jPanelEmployeeTypeLayout.setVerticalGroup(
             jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelTitle)
-                .addGap(33, 33, 33)
+                .addGroup(jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTitle)
+                    .addComponent(jButtonExit))
+                .addGap(29, 29, 29)
                 .addGroup(jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelId)
                     .addComponent(jLabelDescription)
@@ -206,7 +222,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                     .addComponent(jButtonUpdate))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -290,6 +306,12 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+        JFrameHome home = new JFrameHome();
+        home.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonExitActionPerformed
+
     public void clear()
     {
         jTextFieldId.setText("");
@@ -337,6 +359,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonDelete;
+    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInsert;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JLabel jLabelDescription;

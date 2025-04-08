@@ -26,6 +26,8 @@ public class JFrameHome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButtonEmployeeType = new javax.swing.JButton();
         jButtonEmployee = new javax.swing.JButton();
@@ -34,6 +36,11 @@ public class JFrameHome extends javax.swing.JFrame {
         jLabelTitle = new javax.swing.JLabel();
         jLabelGroup = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jButtonExit = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
+
+        jButton2.setText("jButton2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
@@ -44,21 +51,41 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonEmployeeType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonEmployeeType.setForeground(new java.awt.Color(0, 0, 0));
         jButtonEmployeeType.setText("Tipos de Funcionarios");
+        jButtonEmployeeType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmployeeTypeActionPerformed(evt);
+            }
+        });
 
         jButtonEmployee.setBackground(new java.awt.Color(255, 255, 255));
         jButtonEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonEmployee.setForeground(new java.awt.Color(0, 0, 0));
         jButtonEmployee.setText("Funcionarios");
+        jButtonEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEmployeeActionPerformed(evt);
+            }
+        });
 
         jButtonKeys.setBackground(new java.awt.Color(255, 255, 255));
         jButtonKeys.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonKeys.setForeground(new java.awt.Color(0, 0, 0));
         jButtonKeys.setText("Llaves");
+        jButtonKeys.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonKeysActionPerformed(evt);
+            }
+        });
 
         jButtonRecord.setBackground(new java.awt.Color(255, 255, 255));
         jButtonRecord.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonRecord.setForeground(new java.awt.Color(0, 0, 0));
         jButtonRecord.setText("Registros");
+        jButtonRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRecordActionPerformed(evt);
+            }
+        });
 
         jLabelTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,24 +96,35 @@ public class JFrameHome extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/sena/examplejdbc/view/image.jpg"))); // NOI18N
 
+        jButtonExit.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonExit.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonExit.setText("Salir");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
+                        .addComponent(jButtonExit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelGroup))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonEmployeeType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonKeys, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabelGroup)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
                 .addGap(19, 19, 19))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(199, 199, 199)
@@ -98,23 +136,23 @@ public class JFrameHome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabelTitle)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jButtonEmployeeType)
-                        .addGap(41, 41, 41)
-                        .addComponent(jButtonEmployee)
-                        .addGap(38, 38, 38)
-                        .addComponent(jButtonKeys)
-                        .addGap(32, 32, 32)
-                        .addComponent(jButtonRecord)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addGap(49, 49, 49)
-                        .addComponent(jLabelGroup)
-                        .addContainerGap())))
+                        .addComponent(jLabelGroup))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButtonEmployeeType)
+                        .addGap(34, 34, 34)
+                        .addComponent(jButtonEmployee)
+                        .addGap(40, 40, 40)
+                        .addComponent(jButtonKeys)
+                        .addGap(33, 33, 33)
+                        .addComponent(jButtonRecord)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonExit)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -131,6 +169,34 @@ public class JFrameHome extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonEmployeeTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmployeeTypeActionPerformed
+        JFrameEmployeeType EmployeeT = new JFrameEmployeeType();
+        EmployeeT.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonEmployeeTypeActionPerformed
+
+    private void jButtonEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEmployeeActionPerformed
+        JFrameEmployee Employee = new JFrameEmployee();
+        Employee.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonEmployeeActionPerformed
+
+    private void jButtonKeysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonKeysActionPerformed
+        JFrameKey Key = new JFrameKey();
+        Key.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonKeysActionPerformed
+
+    private void jButtonRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecordActionPerformed
+        JFrameRecord Record = new JFrameRecord();
+        Record.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonRecordActionPerformed
+
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,8 +234,11 @@ public class JFrameHome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonEmployee;
     private javax.swing.JButton jButtonEmployeeType;
+    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonKeys;
     private javax.swing.JButton jButtonRecord;
     private javax.swing.JLabel jLabel1;

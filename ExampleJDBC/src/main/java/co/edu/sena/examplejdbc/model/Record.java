@@ -4,6 +4,8 @@
  */
 package co.edu.sena.examplejdbc.model;
 
+import java.awt.RenderingHints;
+
 /**
  * Fecha: 20/03/2025
  * Autor: Sebastian Rodriguez
@@ -85,5 +87,9 @@ public class Record {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public void setKey(RenderingHints.Key key) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

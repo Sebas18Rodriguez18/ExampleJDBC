@@ -78,6 +78,7 @@ public class JFrameKey extends javax.swing.JFrame {
         jButtonClear = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableKey = new javax.swing.JTable();
+        jButtonExit = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Table Key");
@@ -187,6 +188,16 @@ public class JFrameKey extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableKey);
 
+        jButtonExit.setBackground(new java.awt.Color(255, 51, 51));
+        jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonExit.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonExit.setText("Menú");
+        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelKeyLayout = new javax.swing.GroupLayout(jPanelKey);
         jPanelKey.setLayout(jPanelKeyLayout);
         jPanelKeyLayout.setHorizontalGroup(
@@ -198,7 +209,7 @@ public class JFrameKey extends javax.swing.JFrame {
                         .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanelKeyLayout.createSequentialGroup()
-                                    .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addGroup(jPanelKeyLayout.createSequentialGroup()
                                             .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabelName)
@@ -212,9 +223,10 @@ public class JFrameKey extends javax.swing.JFrame {
                                                 .addComponent(jLabelCount)
                                                 .addComponent(jLabelRoom)))
                                         .addGroup(jPanelKeyLayout.createSequentialGroup()
+                                            .addComponent(jButtonExit)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabelTitle)
                                             .addGap(24, 24, 24)))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jTextFieldCount)
                                         .addComponent(jTextFieldRoom, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -223,7 +235,7 @@ public class JFrameKey extends javax.swing.JFrame {
                                     .addComponent(jButtonInsert)
                                     .addGap(18, 18, 18)
                                     .addComponent(jButtonDelete)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                                     .addComponent(jButtonUpdate)
                                     .addGap(18, 18, 18)
                                     .addComponent(jButtonClear)))
@@ -236,8 +248,13 @@ public class JFrameKey extends javax.swing.JFrame {
         jPanelKeyLayout.setVerticalGroup(
             jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelKeyLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabelTitle)
+                .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelKeyLayout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jLabelTitle))
+                    .addGroup(jPanelKeyLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButtonExit)))
                 .addGap(37, 37, 37)
                 .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelKeyLayout.createSequentialGroup()
@@ -373,6 +390,12 @@ public class JFrameKey extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
+    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+        JFrameHome home = new JFrameHome();
+        home.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonExitActionPerformed
+
     public void clean()
     {
         jTextFieldId.setText("");
@@ -424,6 +447,7 @@ public class JFrameKey extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonDelete;
+    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInsert;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JLabel jLabelCount;
