@@ -59,6 +59,7 @@ public class JFrameKey extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelHome = new javax.swing.JLabel();
         jPanelKey = new javax.swing.JPanel();
         jLabelId = new javax.swing.JLabel();
         jTextFieldId = new javax.swing.JTextField();
@@ -78,7 +79,17 @@ public class JFrameKey extends javax.swing.JFrame {
         jButtonClear = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableKey = new javax.swing.JTable();
-        jButtonExit = new javax.swing.JButton();
+        jLabelHome1 = new javax.swing.JLabel();
+
+        jLabelHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHome.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/sena/examplejdbc/view/home.png"))); // NOI18N
+        jLabelHome.setText("HOME");
+        jLabelHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelHomeMouseClicked(evt);
+            }
+        });
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Table Key");
@@ -188,13 +199,14 @@ public class JFrameKey extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableKey);
 
-        jButtonExit.setBackground(new java.awt.Color(255, 51, 51));
-        jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonExit.setText("Menú");
-        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExitActionPerformed(evt);
+        jLabelHome1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHome1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelHome1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/sena/examplejdbc/view/home.png"))); // NOI18N
+        jLabelHome1.setText("HOME");
+        jLabelHome1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelHome1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelHome1MouseClicked(evt);
             }
         });
 
@@ -223,7 +235,7 @@ public class JFrameKey extends javax.swing.JFrame {
                                                 .addComponent(jLabelCount)
                                                 .addComponent(jLabelRoom)))
                                         .addGroup(jPanelKeyLayout.createSequentialGroup()
-                                            .addComponent(jButtonExit)
+                                            .addComponent(jLabelHome1)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(jLabelTitle)
                                             .addGap(24, 24, 24)))
@@ -254,7 +266,7 @@ public class JFrameKey extends javax.swing.JFrame {
                         .addComponent(jLabelTitle))
                     .addGroup(jPanelKeyLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButtonExit)))
+                        .addComponent(jLabelHome1)))
                 .addGap(37, 37, 37)
                 .addGroup(jPanelKeyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelKeyLayout.createSequentialGroup()
@@ -390,11 +402,19 @@ public class JFrameKey extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
-    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+    private void jLabelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeMouseClicked
         JFrameHome home = new JFrameHome();
+
         home.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonExitActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jLabelHomeMouseClicked
+
+    private void jLabelHome1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHome1MouseClicked
+        JFrameHome home = new JFrameHome();
+
+        home.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabelHome1MouseClicked
 
     public void clean()
     {
@@ -447,10 +467,11 @@ public class JFrameKey extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInsert;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JLabel jLabelCount;
+    private javax.swing.JLabel jLabelHome;
+    private javax.swing.JLabel jLabelHome1;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelName;
     private javax.swing.JLabel jLabelObservation;

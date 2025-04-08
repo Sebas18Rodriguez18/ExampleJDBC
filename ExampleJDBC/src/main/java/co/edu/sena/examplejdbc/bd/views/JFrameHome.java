@@ -42,7 +42,7 @@ public class JFrameHome extends javax.swing.JFrame {
 
         jButton2.setText("jButton2");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Home");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
@@ -51,6 +51,7 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonEmployeeType.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonEmployeeType.setForeground(new java.awt.Color(0, 0, 0));
         jButtonEmployeeType.setText("Tipos de Funcionarios");
+        jButtonEmployeeType.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonEmployeeType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEmployeeTypeActionPerformed(evt);
@@ -61,6 +62,7 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonEmployee.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonEmployee.setForeground(new java.awt.Color(0, 0, 0));
         jButtonEmployee.setText("Funcionarios");
+        jButtonEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonEmployee.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEmployeeActionPerformed(evt);
@@ -71,6 +73,7 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonKeys.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonKeys.setForeground(new java.awt.Color(0, 0, 0));
         jButtonKeys.setText("Llaves");
+        jButtonKeys.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonKeys.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonKeysActionPerformed(evt);
@@ -81,6 +84,7 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonRecord.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonRecord.setForeground(new java.awt.Color(0, 0, 0));
         jButtonRecord.setText("Registros");
+        jButtonRecord.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRecordActionPerformed(evt);
@@ -91,8 +95,9 @@ public class JFrameHome extends javax.swing.JFrame {
         jLabelTitle.setForeground(new java.awt.Color(255, 255, 255));
         jLabelTitle.setText("Master Key 1.0");
 
-        jLabelGroup.setForeground(new java.awt.Color(0, 0, 0));
-        jLabelGroup.setText("ADSO 2921881");
+        jLabelGroup.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabelGroup.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelGroup.setText("ADSO 2921881 - 2025");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/sena/examplejdbc/view/image.jpg"))); // NOI18N
 
@@ -100,6 +105,7 @@ public class JFrameHome extends javax.swing.JFrame {
         jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jButtonExit.setForeground(new java.awt.Color(0, 0, 0));
         jButtonExit.setText("Salir");
+        jButtonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExitActionPerformed(evt);
@@ -136,7 +142,7 @@ public class JFrameHome extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jLabelTitle)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -152,18 +158,18 @@ public class JFrameHome extends javax.swing.JFrame {
                         .addComponent(jButtonRecord)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonExit)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();

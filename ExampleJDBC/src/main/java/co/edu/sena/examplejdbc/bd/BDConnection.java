@@ -35,7 +35,7 @@ public class BDConnection {
             System.out.println("Conectado!");
         } 
         catch (ClassNotFoundException | IllegalAccessException | InstantiationException | SQLException e) {
-            MessageUtils.showErrorMessage("Error de conexión a la base de datos, chaloka");
+            MessageUtils.showErrorMessage("Error de conexión a la base de datos");
         }
     }
     

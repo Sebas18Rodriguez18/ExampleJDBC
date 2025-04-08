@@ -97,7 +97,7 @@ public class JFrameEmployee extends javax.swing.JFrame {
         jButtonClean = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableEmployee = new javax.swing.JTable();
-        jButtonExit = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Employee");
@@ -203,13 +203,14 @@ public class JFrameEmployee extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTableEmployee);
 
-        jButtonExit.setBackground(new java.awt.Color(255, 51, 51));
-        jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonExit.setText("Menú");
-        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExitActionPerformed(evt);
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/sena/examplejdbc/view/home.png"))); // NOI18N
+        jLabel2.setText("HOME");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
             }
         });
 
@@ -219,52 +220,50 @@ public class JFrameEmployee extends javax.swing.JFrame {
             jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelEmployeeLayout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(jLabelType)
+                .addGap(48, 48, 48)
+                .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jScrollPane1)
+            .addGroup(jPanelEmployeeLayout.createSequentialGroup()
+                .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonInsert)
+                    .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabelDocument)
+                        .addComponent(jLabelAdress))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelEmployeeLayout.createSequentialGroup()
-                        .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonInsert)
-                            .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelDocument)
-                                .addComponent(jLabelAdress))
-                            .addComponent(jButtonExit, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(122, 122, 122)
+                        .addComponent(jButtonUpdate)
+                        .addGap(168, 168, 168)
+                        .addComponent(jButtonDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                        .addComponent(jButtonClean)
+                        .addGap(14, 14, 14))
+                    .addGroup(jPanelEmployeeLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldAdress, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(jTextFieldDocument))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelEmployeeLayout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(jButtonUpdate)
-                                .addGap(168, 168, 168)
-                                .addComponent(jButtonDelete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonClean)
-                                .addGap(14, 14, 14))
+                                .addComponent(jLabel1)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(jPanelEmployeeLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldAdress, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldDocument))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanelEmployeeLayout.createSequentialGroup()
-                                        .addComponent(jLabel1)
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(jLabelName)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanelEmployeeLayout.createSequentialGroup()
-                                        .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanelEmployeeLayout.createSequentialGroup()
-                                                .addComponent(jLabelName)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                            .addGroup(jPanelEmployeeLayout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(jLabelPhone)
-                                                .addGap(59, 59, 59)))
-                                        .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextFieldPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
-                                            .addComponent(jTextFieldName))
-                                        .addGap(36, 36, 36))))))
-                    .addGroup(jPanelEmployeeLayout.createSequentialGroup()
-                        .addComponent(jLabelType)
-                        .addGap(48, 48, 48)
-                        .addComponent(jComboBoxType, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addComponent(jScrollPane1)
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabelPhone)
+                                        .addGap(59, 59, 59)))
+                                .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldName))
+                                .addGap(36, 36, 36))))))
         );
         jPanelEmployeeLayout.setVerticalGroup(
             jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -272,8 +271,8 @@ public class JFrameEmployee extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jButtonExit))
-                .addGap(33, 33, 33)
+                    .addComponent(jLabel2))
+                .addGap(34, 34, 34)
                 .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelEmployeeLayout.createSequentialGroup()
                         .addGroup(jPanelEmployeeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -306,11 +305,11 @@ public class JFrameEmployee extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelEmployee, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -409,11 +408,12 @@ public class JFrameEmployee extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
-    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         JFrameHome home = new JFrameHome();
+
         home.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonExitActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     public void clean()
     {
@@ -466,11 +466,11 @@ public class JFrameEmployee extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonClean;
     private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInsert;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JComboBox<String> jComboBoxType;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelAdress;
     private javax.swing.JLabel jLabelDocument;
     private javax.swing.JLabel jLabelName;

@@ -14,7 +14,6 @@ import co.edu.sena.examplejdbc.model.Employee;
 import co.edu.sena.examplejdbc.model.keys;
 import co.edu.sena.examplejdbc.model.Record;
 import co.edu.sena.examplejdbc.utils.MessageUtils;
-import java.awt.event.MouseEvent;
 import java.time.LocalDate;
 import java.util.List;
 import javax.swing.DefaultComboBoxModel;
@@ -121,13 +120,13 @@ public final class JFrameRecord extends javax.swing.JFrame {
         jButtonClean = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableRecord = new javax.swing.JTable();
-        jButtonExit = new javax.swing.JButton();
+        jLabelHome = new javax.swing.JLabel();
 
         jComboBox6.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox6.setForeground(new java.awt.Color(0, 0, 0));
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una opcion...", "ENTREGADO", "PENDIENTE", "CANCELADO" }));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Table Record");
 
         jPanel.setBackground(new java.awt.Color(0, 102, 102));
@@ -180,7 +179,7 @@ public final class JFrameRecord extends javax.swing.JFrame {
                     .addComponent(jLabelId))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(timePickerStartTime, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+                    .addComponent(timePickerStartTime, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
                     .addComponent(jTextFieldId))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,7 +311,6 @@ public final class JFrameRecord extends javax.swing.JFrame {
             }
         });
 
-        jTableRecord.setBackground(new java.awt.Color(255, 255, 255));
         jTableRecord.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jTableRecord.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -325,16 +323,22 @@ public final class JFrameRecord extends javax.swing.JFrame {
 
             }
         ));
-        
+        jTableRecord.setBackground(new java.awt.Color(255, 255, 255));
+        jTableRecord.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableRecordMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableRecord);
 
-        jButtonExit.setText("Menú");
-        jButtonExit.setBackground(new java.awt.Color(255, 51, 51));
-        jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExitActionPerformed(evt);
+        jLabelHome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabelHome.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/sena/examplejdbc/view/home.png"))); // NOI18N
+        jLabelHome.setText("HOME");
+        jLabelHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabelHomeMouseClicked(evt);
             }
         });
 
@@ -346,10 +350,9 @@ public final class JFrameRecord extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelLayout.createSequentialGroup()
-                        .addComponent(jButtonExit)
-                        .addGap(302, 302, 302)
-                        .addComponent(jLabelTitle)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jLabelHome)
+                        .addGap(306, 306, 306)
+                        .addComponent(jLabelTitle))
                     .addComponent(jScrollPane2)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -360,7 +363,7 @@ public final class JFrameRecord extends javax.swing.JFrame {
                                 .addGap(51, 51, 51)
                                 .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jPanelDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                         .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanelStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLayout.createSequentialGroup()
@@ -374,7 +377,7 @@ public final class JFrameRecord extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTitle)
-                    .addComponent(jButtonExit))
+                    .addComponent(jLabelHome))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -497,11 +500,40 @@ public final class JFrameRecord extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
-    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        JFrameHome home = new JFrameHome();
-        home.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonExitActionPerformed
+    private void jTableRecordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableRecordMouseClicked
+        int rowSelected = jTableRecord.getSelectedRow();
+        
+        if (rowSelected != -1)
+        {
+            jButtonInsert.setEnabled(false);
+            jButtonUpdate.setEnabled(true);
+            jButtonDelete.setEnabled(true);
+            timePickerEndTime.setEnabled(true);
+            
+            int id = Integer.parseInt(jTableRecord.getValueAt(rowSelected, 0).toString());
+            
+            try {
+                Record findRecord = recordController.findById(id);
+                jTextFieldId.setText(String.valueOf(findRecord.getId()));
+                datePickerDate.setDate(LocalDate.parse(findRecord.getDate_record()));
+                timePickerStartTime.setText(findRecord.getStart_time());
+                timePickerEndTime.setText(findRecord.getEnd_time());
+                jComboBoxEmployee.getModel().setSelectedItem(findRecord.getEmployee());
+                jComboBoxKey.getModel().setSelectedItem(findRecord.getKey());
+                jComboBoxStatus.getModel().setSelectedItem(findRecord.getStatus());
+                
+            } catch (Exception e) {
+                MessageUtils.showErrorMessage(e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jTableRecordMouseClicked
+
+    private void jLabelHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelHomeMouseClicked
+       JFrameHome home = new JFrameHome();
+       
+       home.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabelHomeMouseClicked
 
     public void clean()
     {
@@ -559,7 +591,6 @@ public final class JFrameRecord extends javax.swing.JFrame {
     private com.github.lgooddatepicker.components.DatePicker datePickerDate;
     private javax.swing.JButton jButtonClean;
     private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInsert;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JComboBox<String> jComboBox6;
@@ -569,6 +600,7 @@ public final class JFrameRecord extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDate;
     private javax.swing.JLabel jLabelEmployee;
     private javax.swing.JLabel jLabelEndTime;
+    private javax.swing.JLabel jLabelHome;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelKey;
     private javax.swing.JLabel jLabelStartTime;

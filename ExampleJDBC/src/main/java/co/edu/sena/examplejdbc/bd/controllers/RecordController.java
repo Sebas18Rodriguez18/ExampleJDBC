@@ -135,7 +135,7 @@ public class RecordController implements IRecordController{
             throw new Exception("No existe un registro con ese id");
         }
         
-        return findById(id);
+        return dbr.findById(id);
     }
     
 }

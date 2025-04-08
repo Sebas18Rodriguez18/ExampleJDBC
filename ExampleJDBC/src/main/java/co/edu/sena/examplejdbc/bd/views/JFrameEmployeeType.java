@@ -72,7 +72,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         jButtonClear = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableEmployee_Type = new javax.swing.JTable();
-        jButtonExit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("EmployeeType");
@@ -154,13 +154,14 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableEmployee_Type);
 
-        jButtonExit.setBackground(new java.awt.Color(255, 51, 51));
-        jButtonExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonExit.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonExit.setText("Menú");
-        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExitActionPerformed(evt);
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/co/edu/sena/examplejdbc/view/home.png"))); // NOI18N
+        jLabel1.setText("HOME");
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
             }
         });
 
@@ -182,8 +183,8 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
-                        .addComponent(jButtonExit)
-                        .addGap(61, 61, 61)
+                        .addComponent(jLabel1)
+                        .addGap(91, 91, 91)
                         .addComponent(jLabelTitle)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelEmployeeTypeLayout.createSequentialGroup()
@@ -207,8 +208,8 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTitle)
-                    .addComponent(jButtonExit))
-                .addGap(29, 29, 29)
+                    .addComponent(jLabel1))
+                .addGap(31, 31, 31)
                 .addGroup(jPanelEmployeeTypeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelId)
                     .addComponent(jLabelDescription)
@@ -222,7 +223,7 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
                     .addComponent(jButtonUpdate))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -306,11 +307,12 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
-    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        JFrameHome home = new JFrameHome();
-        home.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonExitActionPerformed
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+       JFrameHome home = new JFrameHome();
+       
+       home.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel1MouseClicked
 
     public void clear()
     {
@@ -359,9 +361,9 @@ public class JFrameEmployeeType extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonDelete;
-    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonInsert;
     private javax.swing.JButton jButtonUpdate;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDescription;
     private javax.swing.JLabel jLabelId;
     private javax.swing.JLabel jLabelTitle;
